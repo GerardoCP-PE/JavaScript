@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>this</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+    <ul>
+      <li><button class="call-to-action">Aprender</button></li>
+      <li><button class="call-to-action">Aprender mas</button></li>
+      <li><button class="call-to-action">!Nunca pares de aprender¡</button></li>
+    </ul>
+    <script>
+      //Establece 'this' usando call
+      function saludar() {
+        console.log(`Hola soy ${this.name} ${this.apellido}`);
+      }
+      const jaime = {
+        name: "Jaime",
+        apellido: "Chavez",
+      };
+
+      saludar.call(jaime);
+
+      function caminar(metros, direccion) {
+        console.log(`${this.name} camina ${metros} metros hacia ${direccion}`);
+      }
+
+      caminar.call(jaime, 500, "sur");
+      //Establece this usando apply
+      const valores = [400, "este"];
+      caminar.apply(jaime, valores);
+      /*
+      nice tip
+      Call = comma
+      Apply = arreglo
+
+      */ 
+
+      ///estableciendo this usando bind
+      const daniel = {
+        name: "Daniel",
+        apellido: "Sanchez",
+      };
+
+      const danielSaluda = saludar.bind(daniel);
+      danielSaluda();
+
+      const danielCamina = caminar.bind(daniel, 5000, "oeste");
+      danielCamina();
+
+      //Cuando usar esos butones
+      const buttons = document.getElementsByClassName("call-to-action");
+      // buttons.forEach(button => {
+      //   button.onclick = () => alert('Nunca pares de parender'); 
+      // });
+
+      //Nodelist
+      Array.prototype.forEach.call(buttons, button => {
+        button.onclick = () => alert('Nunca pares de aprender'); 
+      })
+</script>
+  </body>
+</html>

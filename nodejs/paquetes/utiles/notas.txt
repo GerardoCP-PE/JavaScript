@@ -1,0 +1,4 @@
+paquetes que nos seran muy utiles
+bycript  = para encriptar, muy util para claves
+moment = para trabajar con fechas
+sharp  = manejo de imagenes 
