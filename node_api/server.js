@@ -6,7 +6,7 @@ const db = require('./db');
 //const router = require('./components/messages/network');
 const socket = require('./socket');
 const router = require('./network/routes');
-db('mongodb+srv://db_user_demo:I1jetZVwryfALGJT@cluster0.w7qgp.mongodb.net/nodejsdemo_db?retryWrites=true&w=majority');
+db('URI');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
